@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="/course/coursework/GP3copy/src/main/java/ui/TextUI.java">
+<error line="3" column="15" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - mancala.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="15" column="5" severity="error" message="Method startGame length is 60 lines (max allowed is 50)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="87" severity="error" message="Line is longer than 120 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/course/coursework/GP3copy/src/main/java/mancala/NoSuchPlayerException.java">
+</file>
+<file name="/course/coursework/GP3copy/src/main/java/mancala/MancalaGame.java">
+</file>
+<file name="/course/coursework/GP3copy/src/main/java/mancala/PitNotFoundException.java">
+</file>
+<file name="/course/coursework/GP3copy/src/main/java/mancala/Player.java">
+<error line="12" column="26" severity="error" message="&apos;name&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="21" column="32" severity="error" message="&apos;name&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="33" column="32" severity="error" message="&apos;store&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+</file>
+<file name="/course/coursework/GP3copy/src/main/java/mancala/GameNotOverException.java">
+</file>
+<file name="/course/coursework/GP3copy/src/main/java/mancala/Board.java">
+<error line="45" column="5" severity="error" message="Method distributeStones length is 83 lines (max allowed is 50)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="150" column="9" severity="error" message="&apos;}&apos; at column 9 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally)." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="252" severity="error" message="Line is longer than 120 characters (found 122)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/course/coursework/GP3copy/src/main/java/mancala/Pit.java">
+</file>
+<file name="/course/coursework/GP3copy/src/main/java/mancala/Store.java">
+</file>
+<file name="/course/coursework/GP3copy/src/main/java/mancala/InvalidMoveException.java">
+</file>
+</checkstyle>

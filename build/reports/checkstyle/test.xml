@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="/course/coursework/GP3/src/test/java/mancala/PlayerTest.java">
+</file>
+<file name="/course/coursework/GP3/src/test/java/mancala/PitTest.java">
+</file>
+<file name="/course/coursework/GP3/src/test/java/mancala/StoreTest.java">
+</file>
+<file name="/course/coursework/GP3/src/test/java/mancala/MancalaGameTest.java">
+<error line="18" column="15" severity="error" message="Unused import - org.junit.jupiter.api.Assertions.assertNull." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+</file>
+<file name="/course/coursework/GP3/src/test/java/mancala/BoardTest.java">
+<error line="3" severity="error" message="Line is longer than 120 characters (found 123)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="14" column="15" severity="error" message="Unused import - org.junit.jupiter.api.Assertions.assertEquals." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="30" severity="error" message="Line is longer than 120 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="48" column="93" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="58" column="93" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+</file>
+</checkstyle>
