@@ -1,5 +1,3 @@
-
-
 package mancala;
 
 import java.util.ArrayList;
@@ -21,7 +19,10 @@ public class Board {
         initializeBoard();
     }
 
-    public int captureStones(int stoppingPoint) {
+    public int captureStones(int stoppingPoint) throws PitNotFoundException{
+        if(stoppingPoint < 0 || stoppingPoint > 12){
+            throw new PitNotFoundException();
+        }
         int stonesCaptured = 0;
         int startIndex = stoppingPoint - 1;
 
@@ -34,7 +35,7 @@ public class Board {
         }
         return stonesCaptured;
     }
-    public int getNumStones(int pitNum) {
+    public int getNumStones(int pitNum) throws PitNotFoundException {
         if (pitNum >= 0 && pitNum < 12) {
             return pits.get(pitNum).getStoneCount();
         } else {
@@ -42,8 +43,11 @@ public class Board {
         }
     }
     
-    public int distributeStones(int startingPoint) {
+    public int distributeStones(int startingPoint) throws PitNotFoundException{
 
+        if(startingPoint < 0 || startingPoint > 12){
+            throw new PitNotFoundException();
+        }
         int stonesAdded = 0;
         int inStoreBefore;
         int stonesToDistribute = pits.get(startingPoint).removeStones();
@@ -126,6 +130,8 @@ public class Board {
         return stonesAdded;
     }
     
+    
+    
     public ArrayList<Pit> getPits() {
         // Create a new ArrayList that includes only the pits (excluding stores)
         ArrayList<Pit> boardPits = new ArrayList<>(pits.subList(0, 12));
@@ -139,28 +145,28 @@ public class Board {
     }
 
     public boolean isSideEmpty(int pitNum) throws PitNotFoundException {
-        if(pitNum < 0 || pitNum > 12){
+        if (pitNum < 0 || pitNum > 12) {
             throw new PitNotFoundException();
         }
         int endIndex = pitNum;
         int startIndex;
-        if(endIndex<=6){
+        if (endIndex <= 6) {
             startIndex = 0;
             endIndex = 6;
-        }
-        else{
+        } else {
             startIndex = 6;
             endIndex = 11;
         }
         // 0-5 for Player One, 7-12 for Player Two
-
+    
         for (int i = startIndex; i <= endIndex; i++) {
             if (pits.get(i).getStoneCount() > 0) {
                 return false;
             }
         }
         return true;
-    }  
+    }
+    
 
     public int moveStones(int startPit, Player player) throws InvalidMoveException {
         currentPlayer = player;
@@ -249,7 +255,7 @@ public class Board {
 
         // Add pits and stores information here
         for (int i = 0; i < 12; i++) {
-            boardString.append("Pit ").append(i + 1).append(": ").append(pits.get(i).getStoneCount()).append(" stones\n");
+        boardString.append("Pit ").append(i + 1).append(": ").append(pits.get(i).getStoneCount()).append(" stones\n");
         }
         boardString.append("Store 1: ").append(stores.get(0).getTotalStones()).append(" stones\n");
         boardString.append("Store 2: ").append(stores.get(1).getTotalStones()).append(" stones\n");
@@ -263,6 +269,7 @@ public class Board {
             playerOneStonesSum += pits.get(i).removeStones();
         }
         stores.get(0).addStones(playerOneStonesSum);
+         playerOne.getStore().addStones(playerOneStonesSum);
 
         // Sum all stones in player two's pits and add to player two's store
         int playerTwoStonesSum = 0;
@@ -270,5 +277,6 @@ public class Board {
             playerTwoStonesSum += pits.get(i).removeStones();
         }
         stores.get(1).addStones(playerTwoStonesSum);
+        playerTwo.getStore().addStones(playerTwoStonesSum);
     }
 }

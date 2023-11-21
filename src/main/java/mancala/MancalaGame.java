@@ -42,7 +42,10 @@ public class MancalaGame {
         return players;
     }
 
-    public int getStoreCount(Player player) {
+    public int getStoreCount(Player player) throws NoSuchPlayerException {
+        if (currentPlayer != playerOne && currentPlayer != playerTwo){
+            throw new NoSuchPlayerException();
+        }
         return player.getStore().getTotalStones();
     }
 
@@ -52,14 +55,15 @@ public class MancalaGame {
         }
     
         // Determine the winner as previously defined
-        if (playerOne.getStore().getTotalStones() < playerTwo.getStore().getTotalStones()) {
+        if (playerOne.getStore().getTotalStones() > playerTwo.getStore().getTotalStones()) {
             return playerOne;
-        } else if (playerOne.getStore().getTotalStones() > playerTwo.getStore().getTotalStones()) {
+        } else if (playerOne.getStore().getTotalStones() < playerTwo.getStore().getTotalStones()) {
             return playerTwo;
         }
     
         return null;
     }
+    
 
     public boolean isGameOver() {
         boolean playerOnePitsEmpty = true;
@@ -154,4 +158,3 @@ public class MancalaGame {
     }
     
 }
-

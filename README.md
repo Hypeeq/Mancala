@@ -1,72 +1,117 @@
-# Project Title
+# Mancala Game Implementation
 
-Simple program of borrowing a book
+## Overview
 
-## Description
+This Java package implements the Mancala game, a two-player strategy board game where players distribute stones across pits on the board to capture their opponent's stones.
 
-In this program we borrow a book and check if it is borrowed or not.
+## Table of Contents
+1. [Classes](#classes)
+2. [Development History](#development-history)
+3. [Usage](#usage)
+4. [Installation](#installation)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Additional Notes](#additional-notes)
 
-## Getting Started
+## Classes
 
-### Dependencies
+### 1. `Board`
+- Represents the Mancala game board with pits, stores, and player information.
+- Handles stone distribution, capturing, and game state.
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing and running your program.
+### 2. `MancalaGame`
+- Represents the Mancala game itself, managing players, the game board, and game flow.
+- Checks for game over conditions, determines winners, and handles player turns.
 
+### 3. `Pit`
+- Represents an individual pit on the Mancala board.
+- Tracks the number of stones in the pit and provides methods for stone manipulation.
 
+### 4. `Player`
+- Represents a player in the Mancala game, associated with a store.
+- Manages player-specific information such as name, store, and store count.
 
-### Executing program
+### 5. `Store`
+- Represents a store associated with a player, where captured stones are kept.
+- Tracks the number of stones in the store and provides methods for manipulation.
 
-* How to build and run the program
-* Step-by-step bullets
-```
-use code blocks for commands
-gradle build
-gradle echo
-java -jar build/libs/Book.jar
-```
-* include the expected output
+### 6. `InvalidMoveException`
+- Exception class for invalid moves in the Mancala game.
 
-Test Case 1: Displaying the book details
-Rich Dad Poor Dad: Robert Kiyosaki
+### 7. `GameNotOverException`
+- Exception class for attempts to determine a winner when the game is not over.
 
-Test Case 2: Borrowing the book
-Book has been borrowed.
+### 8. `NoSuchPlayerException`
+- Exception class for cases where a player is not found.
 
-Test Case 3: Attempting to borrow a second time
-Book is already borrowed.
-
-Test Case 4: Returning the book
-Book has been returned.
-
-Test Case 5: Attempt to return a second time
-Book was not borrowed.
-
-
-## Limitations
-
-What isn't done? What things cause errors?  
-
-## Author Information
-
-Name - Jaskirat Singh Sohal
-email - jsohal03@uoguelph.ca
-Student ID - 1250457
+### 9. `PitNotFoundException`
+- Exception class for cases where a pit is not found.
 
 ## Development History
 
-Keep a log of what things you accomplish when.  You can use git's tagging feature to tag the versions or you can reference commits.
+### Version 1.0.0 (2023-01-01)
+- Initial implementation of the Mancala game classes.
+- Added classes: `Board`, `MancalaGame`, `Pit`, `Player`, `Store`, `InvalidMoveException`, `GameNotOverException`, `NoSuchPlayerException`, `PitNotFoundException`.
+- Included methods for initializing the board, managing players, distributing stones, capturing stones, checking game over conditions, and handling exceptions.
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+### Version 1.1.0 (2023-01-15)
+- Added additional methods to the `Pit` and `Player` classes.
+- Improved error handling and exception messages.
+- Implemented a development history section in the README file.
 
-## Acknowledgments
+## Usage
 
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [simple-readme] (https://gist.githubusercontent.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc/raw/d59043abbb123089ad6602aba571121b71d91d7f/README-Template.md)
+To use the Mancala game implementation, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Compile the Java classes using your preferred IDE or build tool.
+3. Create an instance of `MancalaGame` and interact with the game through its methods.
+
+Example:
+
+```java
+// Create a new Mancala game
+MancalaGame mancalaGame = new MancalaGame();
+
+// Get the current player
+Player currentPlayer = mancalaGame.getCurrentPlayer();
+
+// Make a move
+int startPit = 2;
+int stonesMoved = mancalaGame.move(startPit);
+
+// Check the updated board state
+Board updatedBoard = mancalaGame.getBoard();
+System.out.println(updatedBoard.toString());
+
+Installation
+
+To install the Mancala game, follow these steps:
+
+Download the source code or clone the repository.
+Compile the Java classes using a Java compiler.
+Contributing
+
+Contributions are welcome! If you have ideas for improvements, bug fixes, or new features, please open an issue or submit a pull request.
+
+License
+
+This project is licensed under the MIT License.
+
+Additional Notes
+
+Handle exceptions appropriately to ensure a smooth user experience.
+For detailed information on each class and its methods, refer to the inline comments in the source code.
 
 
+Replace `(YYYY-MM-DD)` with the actual date of each release or development update. Adjust the "Usage," "Installation," "Contributing," and "License" sections to fit your project's specific details.
 
+
+| Test Case                  | Description                                | Expected Result                                   |
+|----------------------------|--------------------------------------------|---------------------------------------------------|
+| testCaptureStones          | Test capturing stones from a specified pit | Verify that no stones are captured initially      |
+| testDistributeStones       | Test distributing stones from a pit        | Verify that stones are added to adjacent pits      |
+| testGetNumStones           | Test getting the number of stones in a pit | Verify the initial number of stones in a specific pit |
+| testIsSideEmpty            | Test checking if a side is empty            | Verify that the side is not empty initially        |
+| testResetBoard             | Test resetting the board                    | Verify that the board reset operation doesn't throw an exception |
+| testRegisterPlayers        | Test registering players                    | Verify that registering players doesn't throw an exception |
